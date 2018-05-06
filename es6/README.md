@@ -50,26 +50,40 @@ babel==browser.js
 8.模块化
 
 ### 04. es6变量 ###
+
 let const
+
 //let 定义时变量不能重复 否则报错
+
 //const 定义常量
+
 var、let、const 区别？ https://www.jianshu.com/p/4e9cd99ecbf5
 
 ### 05. es6 函数 ###
+
 函数——箭头函数
+
 es5函数定义
+
 function 名字(){
+
 }
 
 es6函数定义
+
+
 ()=>{
+
 }
 
 1.如果只有一个参数，()可以省
+
 2.如果只有一个return，{}可以省
 
 ()——只有一个参数
+
 {}——只有一个return
+
 ```
 let show = function (a) {
   return a*2;
@@ -89,20 +103,31 @@ arr.sort((n1, n2)=>{
 arr.sort((n1, n2)=>n1-n2);
 alert(arr);
 ```
+
 函数的参数
+
 1.参数扩展/数组展开
+
 2.默认参数
 
 参数扩展：
+
 1.收集参数
+
   function show(a, b, ...args){}
+
   \*Rest Parameter必须是最后一个
+
 2.展开数组
+
   arr = [1,2,3]
+
   ...arr    =>    1,2,3
+
   \*展开后的效果，跟直接把数组的内容写在这儿一样
 
 默认参数
+
 ```
 function show(a, b=5, c=12){
   console.log(a, b, c);
@@ -111,8 +136,11 @@ function show(a, b=5, c=12){
 show(99, 19, 88);
 ```
 ### 06. 解构赋值： ###
+
 1.左右两边结构必须一样
+
 2.右边必须是个东西
+
 3.声明和赋值不能分开(必须在一句话里完成)
 ```
 let [a,b,c]=[12,5,8];
@@ -122,14 +150,19 @@ let [json, arr, num, str]=[{a: 12, b: 5}, [12,5,8], 8, 'cxzcv’];
 console.log(json,arr,num,str); //{a: 12, b: 5}  [12, 5, 8] 8 "cxzcv"
 ```
 ### 07. es6数组新特性 ###
+
 map         映射          一个对一个
+
 ```
 let arr=[12,5,8];
 let result=arr.map(item=>item*2);
 alert(result);
 ```
+
 reduce      汇总          一堆出来一个
+
 求和
+
 ```
 let arr=[12,69,180,8763];
 
@@ -140,7 +173,9 @@ let result=arr.reduce(function (tmp, item, index){
 
 alert(result);
 ```
+
 求平均
+
 ```
 let arr=[12,69,180,8763];
 
@@ -154,7 +189,9 @@ let result=arr.reduce(function (tmp, item, index){
 
 alert(result);
 ```
+
 filter      过滤器
+
 ```
 let arr=[12,5,8,99,27,36,75,11];
 
@@ -173,7 +210,9 @@ let result=arr.filter(json=>json.price>=10000);
 
 console.log(result);
 ```
+
 forEach     循环(迭代)
+
 ```
 let arr=[12,5,8,9];
 
@@ -182,9 +221,13 @@ arr.forEach((item,index)=>{
 });
 ```
 ### 08. es6 ###
+
 字符串
+
 1.多了两个新方法
+
   startsWith
+
   endsWith
 ```
 let str='git://www.baidu.com/2123123';
@@ -213,11 +256,15 @@ if(str.endsWith('.txt')){
   alert('其他');
 }
 ```
+
 2.字符串模板
+
   字符串连接
 
   i.直接把东西塞到字符串里面      ${东西}
+
   ii.可以折行
+
 ```
 let title='标题';
 let content='内容';
@@ -234,10 +281,13 @@ let str2=`<div>
 
 
 ### 09. es6 面向对象 ###
+
 1.class关键字、构造器和类分开了
+
 2.class里面直接加方法
 
 es5中面向对象
+
 ```
 function User(name, pass){
   this.name=name;
@@ -256,7 +306,9 @@ var u1=new User('blue', '123456');
 u1.showName();
 u1.showPass();
 ```
+
 es6实现面向对象
+
 ```
 class User{
   constructor(name, pass){
@@ -272,9 +324,11 @@ class User{
   }
 }
 ```
+
 继承：
 
 es5中实现继承
+
 ```
 function User(name, pass){
   this.name=name;
@@ -309,7 +363,9 @@ v1.showName();
 v1.showPass();
 v1.showLevel();
 ```
+
 es6实现继承
+
 ```
 super
 超类==父类
@@ -348,16 +404,25 @@ v1.showLevel();
 
 
 ### 10. json ###
+
 json：
+
 1.JSON对象
+
   JSON.stringify
+
   JSON.parse
 
 2.简写
+
   名字跟值(key和value)一样的      留一个就行
+
   方法                           : function一块删
+
     show: function (){...}
+
     show(){…}
+
 ```
 let a=12;
 let b=5;
@@ -375,26 +440,34 @@ let json={
 
 json.show();
 ```
+
 json的标准写法：
+
 1.只能用双引号
+
 2.所有的名字都必须用引号包起来
 
 {a: 12, b: 5}       ×
+
 {"a": 12, "b": 5}   √
 
 {a: 'abc', b: 5}    ×
+
 {"a": "abc", "b": 5}√
 
 ### 11. Promise——承诺 ###
 
 
 异步：操作之间没啥关系，同时进行多个操作
+
 同步：同时只能做一件事
 
 异步：代码更复杂
+
 同步：代码简单
 
 异步：
+
 ```
 ajax('/banners', function (banner_data){
   ajax('/hotItems', function (hotitem_data){
@@ -414,7 +487,9 @@ ajax('/banners', function (banner_data){
   alert('读取失败');
 });
 ```
+
 有了Promise之后的异步：
+
 ```
 Promise.all([$.ajax(), $.ajax()]).then(results=>{
   //对了
@@ -422,14 +497,18 @@ Promise.all([$.ajax(), $.ajax()]).then(results=>{
   //错了
 });
 ```
+
 同步：
+
 ```
 let banner_data=ajax_async('/banners');
 let hotitem_data=ajax_async('/hotItems');
 let slide_data=ajax_async('/slides');
 let banner_data=ajax_async('/banners');
 ```
+
 Promise——消除异步操作
+
   \*用同步一样的方式，来书写异步代码
 
 Promise到底怎么用
@@ -437,7 +516,9 @@ Promise到底怎么用
 ------------------------------------------------------------------------------
 
 Promise.all
+
 Promise.race    竞速
+
 ```
 Promise.race([
   $.ajax({url: 'http://a2.taobao.com/data/users'}),
@@ -449,8 +530,11 @@ Promise.race([
 ------------------------------------------------------------------------------
 
 ### 12. generator函数 ###
+
 generator-生成器
+
 普通函数——一路到底
+
 generator函数——中间能停
 
 ```
@@ -475,6 +559,7 @@ function *函数(){ //不能用箭头函数
 ------------------------------------------------------------------------------
 
 yield
+
 ```
 function *show(){
   alert('a');
@@ -496,7 +581,9 @@ let genObj=show();
 genObj.next();    //show_1
 genObj.next();    //show_2
 ```
+
 yield是什么
+
 ```
 function *炒菜(菜市场买回来的){
   洗菜->洗好的菜
@@ -512,7 +599,9 @@ function *炒菜(菜市场买回来的){
   return 熟的菜;
 }
 ```
+
 yield传参
+
 ```
 function *show(num1, num2){
   alert(`${num1}, ${num2}`);
@@ -531,7 +620,9 @@ let gen=show(99, 88);
 gen.next(12);   //没法给yield传参
 gen.next(5);
 ```
+
 yield返回
+
 ```
 function *show(){
   alert('a');
