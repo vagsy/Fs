@@ -1,26 +1,26 @@
 ## es6新特性 ###
 
-###01. 命名###
+### 01. 命名 ###
 
 ES6
 ECMAScript≈JS
 ECMA
 ES
 ECMA6.0
-ES6.0
+ES6.0 
 
-###02. es6兼容性###
+### 02. es6兼容性 ###
 http://kangax.github.io/compat-table/es5/
 http://kangax.github.io/compat-table/es6/
 
 ES6(ES2015)——IE10+、Chrome、FireFox、移动端、NodeJS
-###1. 两种处理兼容的方式###
+### 1. 两种处理兼容的方式 ###
 编译、转换
 1.在线转换browser.js
 2.提前编译babel
 babel==browser.js
 
-###03. es6新特性###
+### 03. es6新特性 ###
 1.变量
 2.函数
 3.数组
@@ -30,13 +30,13 @@ babel==browser.js
 7.generator
 8.模块化
 
-###04. es6变量###
+### 04. es6变量 ###
 let const
 //let 定义时变量不能重复 否则报错
 //const 定义常量
 var、let、const 区别？ https://www.jianshu.com/p/4e9cd99ecbf5
 
-###05. es6 函数###
+### 05. es6 函数 ###
 函数——箭头函数
 es5函数定义
 function 名字(){
@@ -91,7 +91,7 @@ function show(a, b=5, c=12){
 
 show(99, 19, 88);
 ```
-###06. 解构赋值：###
+### 06. 解构赋值： ###
 1.左右两边结构必须一样
 2.右边必须是个东西
 3.声明和赋值不能分开(必须在一句话里完成)
@@ -102,7 +102,7 @@ let {a,b,c}={a: 12, b: 5, c: 8};
 let [json, arr, num, str]=[{a: 12, b: 5}, [12,5,8], 8, 'cxzcv’];
 console.log(json,arr,num,str); //{a: 12, b: 5}  [12, 5, 8] 8 "cxzcv"
 ```
-###07. es6数组新特性###
+### 07. es6数组新特性 ###
 map         映射          一个对一个
 ```
 let arr=[12,5,8];
@@ -162,7 +162,7 @@ arr.forEach((item,index)=>{
   alert(index+': '+item);
 });
 ```
-###08. es6###
+### 08. es6 ###
 字符串
 1.多了两个新方法
   startsWith
@@ -214,7 +214,7 @@ let str2=`<div>
 ```
 
 
-###09. es6 面向对象###
+### 09. es6 面向对象 ###
 1.class关键字、构造器和类分开了
 2.class里面直接加方法
 
@@ -328,7 +328,7 @@ v1.showLevel();
 ```
 
 
-###10. json###
+### 10. json ###
 json：
 1.JSON对象
   JSON.stringify
@@ -366,7 +366,7 @@ json的标准写法：
 {a: 'abc', b: 5}    ×
 {"a": "abc", "b": 5}√
 
-###11. Promise——承诺###
+### 11. Promise——承诺 ###
 
 
 异步：操作之间没啥关系，同时进行多个操作
@@ -429,7 +429,7 @@ Promise.race([
 ```
 ------------------------------------------------------------------------------
 
-###12. generator函数###
+### 12. generator函数 ###
 generator-生成器
 普通函数——一路到底
 generator函数——中间能停
