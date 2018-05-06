@@ -3,31 +3,50 @@
 ### 01. 命名 ###
 
 ES6
+
 ECMAScript≈JS
+
 ECMA
+
 ES
+
 ECMA6.0
-ES6.0 
+
+ES6.0
 
 ### 02. es6兼容性 ###
+
 http://kangax.github.io/compat-table/es5/
+
 http://kangax.github.io/compat-table/es6/
 
 ES6(ES2015)——IE10+、Chrome、FireFox、移动端、NodeJS
+
 ### 1. 两种处理兼容的方式 ###
+
 编译、转换
+
 1.在线转换browser.js
+
 2.提前编译babel
+
 babel==browser.js
 
 ### 03. es6新特性 ###
 1.变量
+
 2.函数
+
 3.数组
+
 4.字符串
+
 5.面向对象
+
 6.Promise
+
 7.generator
+
 8.模块化
 
 ### 04. es6变量 ###
