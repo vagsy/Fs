@@ -642,3 +642,15 @@ console.log(res1);      //{value: 12, done: false}
 let res2=gen.next();
 console.log(res2);      //{value: 55, done: true}
 ```
+### async && await ###
+```
+let readData=async ()=>{
+  let data1=await $.ajax({url: 'data/1.txt', dataType: 'json'});
+  let data2=await $.ajax({url: 'data/2.txt', dataType: 'json'});
+  let data3=await $.ajax({url: 'data/3.txt', dataType: 'json'});
+
+  console.log(data1, data2, data3);
+}
+
+readData();
+```
