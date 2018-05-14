@@ -1,34 +1,34 @@
-expressÕûºÏ
+expressæ•´åˆ
 
 body-parser
 multer
 
-Ä£°åÒıÇæ
+æ¨¡æ¿å¼•æ“
 
-express  Ä£°åÒıÇæ
+express  æ¨¡æ¿å¼•æ“
 
 
-consolidate-ÊÊÅä
+consolidate-é€‚é…
 
 -------------------------------------------------------------------------------------------------------------------------
 
-Ä£°åÒıÇæ£ºÊÊÅä
+æ¨¡æ¿å¼•æ“ï¼šé€‚é…
 1.consolidate
 
 consolidate=require
 
 server.set('view engine', 'html');
-server.set('views', 'Ä£°åÎÄ¼şÄ¿Â¼');
+server.set('views', 'æ¨¡æ¿æ–‡ä»¶ç›®å½•');
 server.engine('html', consolidate.ejs);
 
 server.get('/', function (req, res){
-	res.render('Ä£°åÎÄ¼ş', Êı¾İ);
+	res.render('æ¨¡æ¿æ–‡ä»¶', æ•°æ®);
 });
 
 -------------------------------------------------------------------------------------------------------------------------
 
-route-Â·ÓÉ£º
-°Ñ²»Í¬µÄÄ¿Â¼£¬¶ÔÓ¦µ½²»Í¬µÄÄ£¿é
+route-è·¯ç”±ï¼š
+æŠŠä¸åŒçš„ç›®å½•ï¼Œå¯¹åº”åˆ°ä¸åŒçš„æ¨¡å—
 
 xxxx.com/aaa/		mod1
 xxxx.com/news/	mod_news
@@ -43,24 +43,24 @@ server.get();
 server.use()
 server.post()
 
-Router¡ª¡ªÃÔÄãserver
+Routerâ€”â€”è¿·ä½ server
 router.get();
 router.post();
 router.use();
 
 -------------------------------------------------------------------------------------------------------------------------
 
-Router¡ª¡ª²ğ
+Routerâ€”â€”æ‹†
 /user/....		mod_user
 /item/....		mod_item
 
-//1.´´½¨router
+//1.åˆ›å»ºrouter
 var router=express.Router();
 
-//2.°ÑrouterÌí¼Óµ½server
+//2.æŠŠrouteræ·»åŠ åˆ°server
 server.use('/user', router);
 
-//3.routerÄÚ²¿
+//3.routerå†…éƒ¨
 router.get('/1.html')
 router.post('/2.html')
 
@@ -69,16 +69,16 @@ router.post('/2.html')
 consolidate
 
 server.set('view engine', 'html');
-server.set('views', 'Ä£°åÄ¿Â¼');
+server.set('views', 'æ¨¡æ¿ç›®å½•');
 server.engine('html', consolidate.ejs);
 
 server.use(function (req, res){
-	res.render('Ä£°åÎÄ¼ş', Êı¾İ);
+	res.render('æ¨¡æ¿æ–‡ä»¶', æ•°æ®);
 });
 
 -------------------------------------------------------------------------------------------------------------------------
 
-Router¡ª¡ª×Ó·şÎñ
+Routerâ€”â€”å­æœåŠ¡
 
 var router1=express.Router();
 server.use('/user', router1);
@@ -103,17 +103,3 @@ http://www.xxxx.com/item/mod
 http://www.xxxx.com/item/del
 
 -------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-

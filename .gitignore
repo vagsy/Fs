@@ -2,7 +2,6 @@ npm-debug.log
 bower_components
 node_modules
 .idea
-.DS_Store.gitignore
 .DS_Store
 .zip
 .rar
