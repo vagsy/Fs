@@ -3,3 +3,7 @@ bower_components
 node_modules
 .idea
 .DS_Store.gitignore
+.DS_Store
+.zip
+.rar
+!/node/08.node模块(包)认识 and 发布 删除/*/node_modules
