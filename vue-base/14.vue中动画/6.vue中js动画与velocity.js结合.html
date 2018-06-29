@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue中js动画与velocity.js结合</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <transition
+        name="fade"
+        @before-enter="handleBeforeEnter"
+        @enter="handleEnter"
+        @after-enter="handleAfterEnter"
+        @before-leave="handleBeforeLeave"
+        @leave="handleLeave"
+        @after-leave="handleAfterLeave">
+        <div v-if="show">hello world</div>
+      </transition>
+      <button @click="handleClick">toggle</button>
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            show: true
+          };
+        },
+        methods: {
+          handleClick () {
+            this.show = !this.show;
+          },
+          handleBeforeEnter (el) {
+            el.style.color = 'red';
+          },
+          handleEnter (el, done) {
+            setTimeout(() => {
+              el.style.color = 'green';
+            }, 2000);
+            setTimeout(() => {
+              done();
+            }, 4000);
+          },
+          handleAfterEnter (el) {
+            el.style.color = 'black';
+          },
+          handleBeforeLeave (el) {
+            el.style.color = 'red';
+          },
+          handleLeave (el, done) {
+            setTimeout(() => {
+              el.style.color = 'green';
+            }, 2000);
+            setTimeout(() => {
+              done();
+            }, 4000);
+          },
+          handleAfterLeave (el) {
+            el.style.color = 'black';
+          },
+
+        }
+      });
+    </script>
+  </body>
+</html>

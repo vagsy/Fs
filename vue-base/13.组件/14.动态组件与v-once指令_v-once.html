@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>动态组件与v-once指令</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <child-one v-if="type === 'child-one'"></child-one>
+      <child-two v-if="type === 'child-two'"></child-two>
+      <button @click="handleBtnClick">change</button>
+    </div>
+    <script type="text/javascript">
+      // 用过v-once指令可以有效提高静态内容的展示效率
+      Vue.component('child-one', {
+        template: `<div v-once>
+                      child-one
+                   </div>`
+      });
+      Vue.component('child-two', {
+        template: `<div v-once>
+                      child-two
+                   </div>`
+      });
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            type: 'child-one'
+          };
+        },
+        methods: {
+          handleBtnClick () {
+            this.type = this.type === 'child-one' ? 'child-two' : 'child-one';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

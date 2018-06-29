@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue中作用域插槽</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <child>
+        <template slot-scope="props">
+          <li>{{props.item}}</li>
+        </template>
+      </child>
+    </div>
+    <script type="text/javascript">
+      // 作用插槽必须用template包裹
+      // 用途
+          //当子组件做循环dom结构需要外部传入
+      Vue.component('child', {
+        data () {
+          return {
+            list: [1, 2, 3, 4]
+          }
+        },
+        template: `<div>
+                      <slot v-for="item of list" :item=item></slot>
+                   </div>`
+      })
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+
+          };
+        },
+        methods: {
+
+        }
+      });
+    </script>
+  </body>
+</html>

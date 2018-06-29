@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>组件使用中的细节点</title>
+    <script src="../vue.js"></script>
+    <style type="text/css">
+      div{
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <couter ref="one" @change="handleChange"></couter> + <couter ref="two" @change="handleChange"></couter> = <div>{{total}}</div>
+    </div>
+    <script type="text/javascript">
+      Vue.component('couter', {
+        template: '<div @click="handleClick">{{number}}</div>',
+        data () {
+          return {
+            number: 0
+          }
+        },
+        methods: {
+          handleClick() {
+            this.number++;
+            this.$emit('change');//发布订阅模式
+          }
+        }
+      })
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            total: 0
+          };
+        },
+        methods: {
+          handleChange () {
+            this.total = this.$refs.one.number + this.$refs.two.number;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

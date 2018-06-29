@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue中动画封装</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <fade :show="show">
+        <div>hello world</div>
+      </fade>
+      <fade :show="show">
+        <h1>hello world</h1>
+      </fade>
+      <button @click="handleClick">toggle</button>
+    </div>
+    <script type="text/javascript">
+      Vue.component('fade', {
+        props: ['show'],
+        template: `
+          <transition @before-enter="handleBeforeEnter" @enter="handleEnter">
+            <slot v-if="show"></slot>
+          </transition>
+        `,
+        methods: {
+          handleBeforeEnter (el) {
+            el.style.color = 'red';
+          },
+          handleEnter (el, done) {
+            setTimeout(() => {
+              el.style.color = 'green';
+              done();
+            }, 2000);
+          }
+        }
+      })
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            show: true
+          };
+        },
+        methods: {
+          handleClick () {
+            this.show = !this.show;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue中使用插槽(slot)</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <body-content>
+        <div class="header" slot="header">header</div>
+        <div class="footer" slot="footer">footer</div>
+      </body-content>
+
+      <body-content>
+        <div class="footer" slot="footer">footer</div>
+      </body-content>
+    </div>
+    <script type="text/javascript">
+      // 插槽只能有一个， 具名插槽可以有多个
+      Vue.component('body-content', {
+        template: `<div>
+                      <slot name="header"> default header </slot>
+                      <div class="content">content</div>
+                      <slot name="footer"></slot>
+                   </div>`
+      })
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+
+          };
+        },
+        methods: {
+
+        }
+      });
+    </script>
+  </body>
+</html>

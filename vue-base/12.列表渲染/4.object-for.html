@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>列表渲染</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="(item, key, index) of userInfo">
+        {{item}} --- {{key}} --- {{index}}
+      </div>
+    </div>
+    <script type="text/javascript">
+      // 通过改引用方式改变数据
+      // vm.userInfo = {
+      //     name: 'wind',
+      //     age: '28',
+      //     gender: 'male',
+      //     salary: 'selret'
+      //     address: 'BeiJing'
+      // }
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            userInfo: {
+                name: 'wind',
+                age: '28',
+                gender: 'male',
+                salary: 'selret'
+            }
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TodoList Jquery</title>
+    <script src="../jquery.js"></script>
+  </head>
+  <body>
+    <div>
+      <input id="input" type="text" />
+      <button id="btn">提交</button>
+      <ul id="list">
+      </ul>
+    </div>
+    <script type="text/javascript">
+      //M 模型层  V 视图 P 控制器
+      function Page () {
+
+      }
+
+      $.extend(Page.prototype, {
+        init: function () {
+          this.bindEvents();
+        },
+        bindEvents: function () {
+          var btn = $('#btn');
+          btn.on('click', $.proxy(this.handleBtnClick, this));//proxy 改变this指向
+        },
+        handleBtnClick: function () {
+          var inputElem = $('#input');
+          var inputValue = inputElem.val();
+          var ulElem = $('#list');
+          ulElem.append('<li>'+ inputValue +'</li>');
+          inputElem.val('');
+        }
+      });
+
+      var page = new Page();
+      page.init();
+    </script>
+  </body>
+</html>

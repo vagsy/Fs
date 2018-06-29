@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue中同时使用过渡和动画</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../animate.css">
+    <style>
+      .fade-enter,
+      .fade-leave-to{
+        opacity: 0;
+      }
+      .fade-enter-active,
+      .fade-leave-active{
+        transition: opacity 3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- type设置动画以谁的动画时长截止 -->
+      <!-- duration自定义动画播放时长 -->
+      <!-- :duration="{enter: 5000, leave: 10000}" 设置进场出场时长 -->
+      <transition
+        :duration="5000"
+        type="transition"
+        name="fade"
+        appear
+        enter-active-class="animated swing fade-enter-active"
+        leave-active-class="animated shake fade-leave-active"
+        appear-active-class="animated swing">
+        <div v-if="show">hello world</div>
+      </transition>
+      <button @click="handleClick">toggle</button>
+    </div>
+    <script type="text/javascript">
+      // https://daneden.github.io/animate.css/
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            show: true
+          };
+        },
+        methods: {
+          handleClick () {
+            this.show = !this.show;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

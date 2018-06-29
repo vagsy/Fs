@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>组件使用中的细节点</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tbody>
+          <row></row>
+          <row></row>
+          <row></row>
+          <tr is="row"></tr>
+          <tr is="row"></tr>
+          <tr is="row"></tr>
+        </tbody>
+      </table>
+    </div>
+    <script type="text/javascript">
+      //tbody 下面必须跟tr元素
+      //相似元素 ul-li ol-li select-option
+      Vue.component('row', {
+        data () {
+          return {
+            content: 'this is a row'
+          }
+        },
+        template: '<tr><td>{{content}}</td></tr>'
+      });
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

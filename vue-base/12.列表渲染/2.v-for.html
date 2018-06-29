@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>列表渲染</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="(item, index) of list" :key="item.id">{{item.text}} --- {{index}}</div>
+    </div>
+    <script type="text/javascript">
+      // push pop shift unshift splice sort reverse-取反  不能通过下标方式arr[i]
+      // 修改值
+          // 1.数组方法vm.list.splice(1, 1, {id:'333', text:'wind1'}) 从下标为1删除1项 并添加一项
+          // 2.改变引用 vm.list = [..., ..., ...];
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            list: [
+              {
+                id: '01002001',
+                text: 'hello'
+              },
+              {
+                id: '01002002',
+                text: 'wind'
+              },
+              {
+                id: '01002003',
+                text: 'King'
+              }
+            ]
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

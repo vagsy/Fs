@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>非父子组件间的传值(Bus/总线/发布订阅模式/观察者模式)</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <child content="wind"></child>
+      <child content="king"></child>
+    </div>
+    <script type="text/javascript">
+      // 非父子组件间的传值
+          // 方式1 发布订阅模式--总线机制 [Bus/总线/发布订阅模式/观察者模式 都一个意思]
+          // 方式2 vuex
+
+      Vue.prototype.bus = new Vue(); // Vue实例
+
+      Vue.component('child', {
+        data () {
+          return {
+            selfContent: this.content
+          }
+        },
+        props: {
+          content: String
+        },
+        template: '<div @click="handClick">{{selfContent}}</div>',
+        methods: {
+          handClick () {
+            this.bus.$emit('change', this.selfContent);
+          }
+        },
+        mounted () {
+          var _this = this;
+          this.bus.$on('change', (msg) => {
+            _this.selfContent = msg;
+          });
+        }
+      })
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+
+          };
+        },
+        methods: {
+          handleClick () {
+            alert('handleClick');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

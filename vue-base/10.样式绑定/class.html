@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>计算属性,方法,侦听器</title>
+    <script src="../vue.js"></script>
+    <style type="text/css">
+      .activated {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div @click="handleDivClick" :class="{activated: isActivated}">
+        Hello world
+      </div>
+      <div @click="handleDivClick1" :class="[activated, activatedOne]">
+        Hello world1
+      </div>
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            isActivated: false,
+            activated: '',
+            activatedOne: 'activated-one',
+          };
+        },
+        methods: {
+          handleDivClick () {
+            this.isActivated = !this.isActivated;
+          },
+          handleDivClick1 () {
+            this.activated = this.activated === 'activated' ? '' : 'activated';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

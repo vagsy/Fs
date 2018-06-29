@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>计算属性,方法,侦听器</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div :style="styleObj" @click="handleDivClick">
+        Hello world
+      </div>
+      <div :style="[styleObj1, {fontSize: '20px'}]" @click="handleDivClick1">
+        Hello world
+      </div>
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+            styleObj: {
+              color: 'black'
+            },
+            styleObj1: {
+              color: 'black'
+            }
+          };
+        },
+        methods: {
+          handleDivClick () {
+            this.styleObj.color = this.styleObj.color === 'black' ? 'red' : 'black';
+          },
+          handleDivClick1 () {
+            this.styleObj1.color = this.styleObj1.color === 'black' ? 'red' : 'black';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

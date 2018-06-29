@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>组件参数校验与非props特性</title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <child content="123456"></child>
+      <!-- <child :content="123"></child> -->
+      <!-- <child :content="{a:1}"></child> -->
+      <child></child>
+    </div>
+    <script type="text/javascript">
+      // props特性：当父组件使用子组件的时候通过属性向子组件传值，子组件声明了对父组件传递过来的属性的接收
+
+      //非props特性：父组件向子组件传递了一个属性，子组件没有props内容，即子组件没有声明要接收父组件要传递过来的内容
+        //无法获取到父组件内容
+        //会展示到子组件最外层dom标签的属性里
+
+      Vue.component('child', {
+        props: {
+          // content: [Number, String]
+          content: {
+            type: String,
+            // required: false,
+            default: 'default value',
+            validator: (value) => {
+              return value.length > 5
+            }
+          }
+        },
+        template: '<div>{{content}}</div>'
+      })
+      var vm = new Vue({
+        el: '#app',
+        data () {
+          return {
+
+          };
+        },
+        methods: {
+
+        }
+      });
+    </script>
+  </body>
+</html>
